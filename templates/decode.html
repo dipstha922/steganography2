@@ -1,0 +1,174 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%static '/uploaders/decoding.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/uploaders/filedecode.css"> -->
+
+    <title>Freestegno</title>
+</head>
+<body>
+  <!-- navbars -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Free<strong> Stegno</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+         
+          <a class="nav-link" href="/">Encode</a>
+          <a class="nav-link" href="decoding">Decode</a>
+          <a class="nav-link" href="create_encode">Create</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% if get_message == "has_message" and message|length > 0 %}
+
+  <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Hey</strong>,Your encoded message on the file was <span class="message text-dark font-weight-bold font-italic"><u>{{message}}</u></span>.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  {% elif get_message == "dont_have" %}
+
+  <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Oops! </strong><span class="message text-dark font-weight-bold font-italic">Something went wrong. Please try again.</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  {% elif get_message == "has_message" and message|length <= 0 %}
+
+  <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Oops! </strong><span class="message text-dark font-weight-bold font-italic">File doesnot contain any message. May be try other file. </span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  {% endif %}
+
+
+
+
+
+
+  <div class="container align-center text-center filedecoder">
+
+    <div class="text">
+  
+        <h6 class="card_title">Upload your file here</h6>
+      
+        <p class="card-sub-title">Maximum file size is 1GB</p>
+      
+    </div>
+    <div class="form_box"> 
+      <form action="/decoding" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="file_upload text-center ">
+          <div class="label" id="label">
+            <label for="file_decode" >
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-upload" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                <polyline points="7 9 12 4 17 9" />
+                <line x1="12" y1="4" x2="12" y2="16" />
+              </svg>
+            </label>
+          </div>
+          <div id="name"></div>
+          <input type="file" style="visibility: hidden;" id="file_decode" name="filename" onchange="nameFunction()">
+        </div>
+        <div class="submit">
+          <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="footer">
+
+    <div class="row text-center container-fluid">
+      <div class="col-sm-4">
+        <div class="namecompany">
+            <h4>Free <strong class="strong-name"> Stegno</strong></h4>
+            <p>Fast,secure and better</p>
+        </div>
+      </div>
+  
+      <div class="col-sm-4">
+        <div class="container-link-text pb-1">
+          <h7>Converters</h7>
+          
+        </div>
+        
+        <ul class="link">
+          <li> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="7 7 12 12 7 17" />
+            <polyline points="13 7 18 12 13 17" />
+          </svg> <a href="/">Encode</a></li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 7 12 12 7 17" />
+              <polyline points="13 7 18 12 13 17" />
+            </svg>
+            <a href="/decoding">Decode</a></li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 7 12 12 7 17" />
+              <polyline points="13 7 18 12 13 17" />
+            </svg>
+            <a href="/create_encode">Create</a></li>
+        </ul>
+      </div>
+  
+  <div class="col-sm-4">
+    <h5>About Us</h5>
+    <p>Place to encode your secret message where safety and security is must. As we believe in safe transmission of data. We make a world better place.</p>
+  </div>
+  
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script>
+    function nameFunction(){
+      var name = document.getElementById("file_decode").files[0].name;
+      // document.getElementById("label").style.visibility = "hidden"
+      document.getElementById("name").innerHTML = name
+
+    }
+  </script>
+
+  </body>
+  </html>

@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Montserrat:wght@300&family=Zen+Kurenaido&display=swap');
+body{
+    padding: 0%;
+    margin: 0%;
+    background: rgb(246,253,254);
+    background: linear-gradient(90deg, rgba(246,253,254,1) 0%, rgba(167,188,255,1) 100%);
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.form{
+    /* background-color: rgb(255, 255, 255); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.navbar strong{
+    color: aqua;
+}
+
+.text h4{
+    font-family: 'Comforter', cursive;
+    font-size: 60px;
+}
+.text h6{
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 30px;
+}
+
+
+.form_body{
+    padding-top: 30px;
+    /* background-color: rgb(202, 248, 248); */
+}
+/* .form-control{
+    height: 100px;
+    width: 300px;
+  
+
+} */
+
+.messages-field{
+    height: 200px;
+    width: 800px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.messages-field::placeholder{
+   
+    font-style: italic;
+    text-align: center;
+    font-size: 40px;
+    
+}
+.messages-field:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.messages-field:hover::placeholder {
+    color: transparent;
+  }
+
+.messages-field:focus::placeholder {
+    color: transparent;
+  }
+
+
+
+.row-container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
+.img-side{
+    /* background-color: aqua; */
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.img-fluid{
+    height: 100%;
+    
+}
+
+.how_to h6{
+    font-size: 20px;
+    padding-bottom: 4px;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-weight: bold;
+}
+
+
+.footer{
+
+    padding-top: 100px;
+    background-color: black;
+    padding-bottom: 50px;
+}
+
+.footer .link li a{
+    text-decoration: none;
+    color: rgb(90, 89, 89);
+}
+.footer .link li {
+    text-decoration: none;
+    list-style-type: none;
+    /* color: rgb(90, 89, 89); */
+}
+
+.footer .strong-name{
+    color: aqua;
+}
+
+.footer h4{
+    color: rgb(90, 89, 89);
+}
+.footer h7{
+    color: rgb(255, 255, 255);
+}
+.footer h5{
+    color: rgb(255, 255, 255);
+}
+.footer p{
+    color: rgb(90, 89, 89);
+}

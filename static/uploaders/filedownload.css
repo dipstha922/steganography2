@@ -1,0 +1,89 @@
+body{
+
+    padding: 0%;
+    margin: 0%;
+    background: rgb(246,253,254);
+    background: linear-gradient(90deg, rgba(246,253,254,1) 0%, rgba(167,188,255,1) 100%);
+    
+}
+
+.h3{
+    font-weight: bold;
+}
+
+.h6{
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.h5{
+    font-weight: lighter;
+    font-size: 18px;
+}
+.download{
+    text-decoration: none;
+    color: black;
+    
+
+}
+
+.download-container{
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.navbar strong{
+    color: aqua;
+}
+
+.filedecoder{
+    margin-top: 50px;
+    padding-top: 100px;
+    width: 500px;
+    background-color: rgb(238, 237, 237);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form_box{
+    /* background-color: bisque; */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.footer{
+
+    padding-top: 100px;
+    background-color: black;
+    padding-bottom: 50px;
+}
+
+.footer .link li a{
+    text-decoration: none;
+    color: rgb(90, 89, 89);
+}
+.footer .link li {
+    text-decoration: none;
+    list-style-type: none;
+    /* color: rgb(90, 89, 89); */
+}
+
+.footer .strong-name{
+    color: aqua;
+}
+
+.footer h4{
+    color: rgb(90, 89, 89);
+}
+.footer h7{
+    color: rgb(255, 255, 255);
+}
+.footer h5{
+    color: rgb(255, 255, 255);
+}
+.footer p{
+    color: rgb(90, 89, 89);
+}
